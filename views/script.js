@@ -6,6 +6,9 @@ var female = document.getElementById("f");
 var form = document.getElementById("form");
 let resultArea = document.querySelector(".comment");
 
+var bmi;
+var calorie_result;
+
 var data = { c_age: age, c_height: height, c_weight: weight };
 
 modalContent = document.querySelector(".modal-content");
@@ -28,7 +31,7 @@ function calculate() {
   }
 }
 
-function countBmi() {
+const countBmi = async () => {
   var p = [age.value, height.value, weight.value];
   if (male.checked) {
     p.push("male");
@@ -40,18 +43,45 @@ function countBmi() {
   var calorie_result = Number(
     1.55 * (66.5 + 13.75 * p[2] + 5.003 * p[1] - 6.75 * p[0])
   );
+  console.log("button clicked");
+  console.log(bmi, calorie_result);
+  try {
+    const newBmi = await axios.post("/api/v1/bmi", {
+      // userid: req.params.id,
+      bmi: bmi,
+      calorieintake: calorie_result,
+    });
+    console.log(newBmi);
+  } catch (error) {
+    console.log(error);
+  }
 
   var result = "";
   if (bmi < 18.5) {
     result = "Underweight";
+    setTimeout(function () {
+      location.href = "/underweight";
+    }, 3000);
   } else if (18.5 <= bmi && bmi <= 24.9) {
     result = "Healthy";
+    setTimeout(function () {
+      location.href = "/healthy";
+    }, 3000);
   } else if (25 <= bmi && bmi <= 29.9) {
     result = "Overweight";
+    setTimeout(function () {
+      location.href = "/overweight";
+    }, 3000);
   } else if (30 <= bmi && bmi <= 34.9) {
     result = "Obese";
+    setTimeout(function () {
+      location.href = "/overweight";
+    }, 3000);
   } else if (35 <= bmi) {
     result = "Extremely obese";
+    setTimeout(function () {
+      location.href = "/overweight";
+    }, 3000);
   }
   if (bmi <= 25) {
     resultArea.style.display = "block";
@@ -68,7 +98,7 @@ function countBmi() {
     ).innerHTML = `You are <span id="comment">${result}</span> <br><a style="text-decoration :none; color: green; " href="./index.html">View your personalized diet and workout plan </a>`;
     document.querySelector("#result").innerHTML = bmi.toFixed(2);
   }
-}
+};
 
 // function calorie_counter() {
 //   calorie_result = 66.5 + 13.75 * weight + 5.003 * height - 6.75 * age;
@@ -85,11 +115,9 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+// const calculatebtn = document.querySelector(".calculate");
 
-const savebmi = async () => {
-  const user = await axios.post("/api/v1/register", {
-    username,
-    email,
-  });
-};
-module.exports = { data };
+// calculatebtn.addEventListener("click", async (e) => {
+//   e.preventDefault();
+
+// });

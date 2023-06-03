@@ -34,4 +34,17 @@ router.post("/register", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+router.get("/finduser/:id", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: req.params.id,
+    });
+    console.log(user);
+    res.json(user);
+  } catch (err) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

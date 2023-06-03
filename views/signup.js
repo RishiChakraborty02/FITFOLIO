@@ -35,7 +35,7 @@ signUpDOM.addEventListener("submit", async (e) => {
       registerAlert.innerHTML = `<h3>Registration Successful Mr ${data.name}</h3>`;
       const loginpageredirect = () => {
         let redirect = setTimeout(function () {
-          window.location.href = "index.html";
+          window.location.href = "/";
           window.clearTimeout(redirect);
         }, 5000);
       };
