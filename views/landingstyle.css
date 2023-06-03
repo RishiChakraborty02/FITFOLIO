@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Oxygen", sans-serif;
+}
+
+html {
+  transition: 1.5s;
+  scroll-behavior: smooth;
+}
+
+.header {
+  min-height: 150vh;
+  /* display: flex; */
+  width: 100%;
+  background-image: linear-gradient(rgba(22, 26, 41, 0.7), rgba(4, 9, 30, 0.7)),
+    url(imagesX/backg.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+a:link {
+  text-decoration: none;
+}
+/* .logoss {
+      height: 80px;
+      margin: 2px;
+      width: 50px;
+  
+  } */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 90px;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: red;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+.text-boxx {
+  /* width: 110px; */
+  font-size: 10px;
+  color: white;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  padding-left: 10px;
+  /* margin-right: px; */
+  /* margin-top: px; */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-boxx h1 {
+  font-size: 50px;
+}
+
+.about {
+  text-decoration: none;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+p {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 15px;
+}
+
+.row {
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-col {
+  flex-basis: 31%;
+  background: #e5dede;
+  color: #000000;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 0.25s;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #000000;
+}
+
+.about-col:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.welcome {
+  font-size: 70px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: #fff;
+}
+
+.options {
+  font-size: 35px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: #fff;
+}
